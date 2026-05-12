@@ -6,7 +6,7 @@ description: Migrate Lovable Classic (React + Vite + React Router) projects to L
 # Lovable Classic to Modern Migration
 
 > Created by **Carol Monroe** - Lovable Champion and Supabase SupaSquad Member
-> Tested on 2026-05-11 with full production migration (carolmonroe.com)
+> Tested on production migrations, May 2026
 
 ## What This Does
 

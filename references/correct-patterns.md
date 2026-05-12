@@ -98,13 +98,13 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 ```tsx
 // src/routes/blog/$slug.tsx
 import { createFileRoute } from "@tanstack/react-router";
-import PageComponent from "@/pages/BlogPost";
-import { getBlogPostMeta } from "@/lib/posts.functions";
+import PageComponent from "@/pages/PostDetail";
+import { getPostMeta } from "@/lib/posts.functions";
 
 const SITE = "https://yoursite.com";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => getBlogPostMeta({ data: { slug: params.slug } }),
+  loader: ({ params }) => getPostMeta({ data: { slug: params.slug } }),
   head: ({ loaderData }) => {
     const post = loaderData;
     if (!post) return { meta: [{ title: "Post Not Found" }] };
@@ -131,11 +131,11 @@ import { createServerFn } from "@tanstack/react-start";
 import { notFound } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 
-export const getBlogPostMeta = createServerFn({ method: "GET" })
+export const getPostMeta = createServerFn({ method: "GET" })
   .inputValidator((input: { slug: string }) => input)
   .handler(async ({ data }) => {
     const { data: post, error } = await supabase
-      .from("blog_posts")
+      .from("posts")
       .select("title, excerpt, featured_image, published_at, slug")
       .eq("slug", data.slug)
       .eq("is_published", true)
