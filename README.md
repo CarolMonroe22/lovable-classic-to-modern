@@ -78,7 +78,7 @@ Fix what you find.
 
 The agent will typically fix hydration issues, add SEO per route, set up authenticated layouts, convert loaders to server functions, and clean up SPA leftovers.
 
-**This phase uses Lovable credits.** Expect 5-15 messages depending on project complexity. The agent does platform-specific optimization that would take significantly longer to do manually.
+**This phase uses Lovable credits.** Budget 100-200 credits for the full migration depending on project complexity (number of routes, dynamic content, auth flows). The agent does platform-specific optimization - hydration fixes, per-route SEO, server functions, auth layouts - that would take significantly longer to do manually.
 
 ## How to Use
 
