@@ -56,8 +56,29 @@ references/
 1. **Audit** - routes, react-router imports, SSR-unsafe code
 2. **Convert locally** - TanStack deps, file-based routes, SSR-safe hooks
 3. **Push + Import** - GitHub repo, Lovable Modern project, import
-4. **Platform fixes** - Lovable agent handles hydration, SEO, auth layouts
+4. **Lovable finishes the migration** - the Lovable agent handles platform-specific fixes
 5. **Verify** - rendering, navigation, dynamic routes, view-source
+
+### About Phase 4: Lovable Finishes the Migration
+
+The local conversion (Phases 1-3) handles the structural work - routing, imports, file structure. But TanStack Start on Lovable has platform-specific requirements that the Lovable agent knows best.
+
+After importing your code, ask the Lovable agent to run an audit and fix what's needed:
+
+```
+Review this project for SSR compatibility. Check for:
+- Hydration mismatches (useState with Date/localStorage in initializers)
+- Missing head() with unique title/description on each route
+- Auth routes that need _authenticated layout with ssr:false
+- Loaders that should use createServerFn instead of browser client
+- shadcn components importing next-themes
+- Any build errors or SSR warnings
+Fix what you find.
+```
+
+The agent will typically fix hydration issues, add SEO per route, set up authenticated layouts, convert loaders to server functions, and clean up SPA leftovers.
+
+**This phase uses Lovable credits.** Expect 5-15 messages depending on project complexity. The agent does platform-specific optimization that would take significantly longer to do manually.
 
 ## How to Use
 
