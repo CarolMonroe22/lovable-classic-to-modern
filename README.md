@@ -15,7 +15,7 @@ Moving from SPA to SSR changes your security surface. Review these before and du
 **TanStack NPM supply chain attack (May 2026):** 84 malicious versions were published across 42 `@tanstack/*` packages. The malware harvests credentials and persists via `.claude/` and `.vscode/` directories.
 
 Before installing any `@tanstack/*` package:
-- Verify versions against the [official advisory](https://socket.dev/blog/tanstack-supply-chain-attack)
+- Verify versions against the [official TanStack postmortem](https://tanstack.com/blog/npm-supply-chain-compromise-postmortem)
 - Check for the domain `filev2.getsession[.]org` in node_modules: `grep -r "getsession" node_modules/@tanstack/`
 - Inspect `.claude/` and `.vscode/` for unauthorized files
 - If compromised, rotate ALL credentials (AWS, GCP, GitHub, SSH)
